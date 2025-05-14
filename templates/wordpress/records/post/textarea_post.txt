@@ -15,4 +15,36 @@
 
         form-container-TEXTAREA_TYPE
 
+/***/  STYLE_TEXTAREA
+/* All checkbox styles*/
+.form-container-textarea {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-container-textarea label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-container-textarea textarea {
+    padding: 10px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.5;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container-textarea textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
 /***/  END

@@ -23,17 +23,18 @@
             {
               "tab_name": "main",
               "tab_items": {
-                "input_text": [],
-                "input_color": [],
-                "input_date": [],
-                "input_time": [],
-                "input_checkbox": [],
-                "textarea": ["desc","opis"],
-                "img_link": [],
-                "img_svg": [],
-                "video": [],
-                "points": [],
-                "table": []
+                "input_text": ["Text"],
+                "input_color": ["Text"],
+                "input_date": ["Date"],
+                "input_time": ["Time"],
+                "input_checkbox": ["CheckBox"],
+                "textarea": ["Textarea"],
+                "img_link": ["Image_link","Image_link_"],
+                "img_svg": ["Image_svg"],
+                "video": ["Video", "Video_"],
+                "points": ["Text"],
+                "table": [{"table": ["input_1", "textarea_2"]}],
+                "hard_label": []
               }
             }
 

@@ -81,7 +81,7 @@ class BaseRecord:
 
     def create_css(self, file_name, data):
         try:
-            full_path = self.data_t['full_path']['full_path_to_js']
+            full_path = self.data_t['full_path']['full_path_to_css']
             full_path = os.path.join(str(full_path), file_name)
             data = '\n\n'.join(data)
             self.file_manager.write_file(full_path, data)

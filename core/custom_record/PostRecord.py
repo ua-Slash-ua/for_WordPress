@@ -36,6 +36,7 @@ class PostRecord(BaseRecord):
                 'LLABEL': label_name.lower(),
                 'CLABEL': label_name.capitalize(),
                 'INPUT_TYPE': label,
+                'TEXTAREA_TYPE': label,
                 'INPUT_STYPE': label.replace('input_', ''),
             }
             for k in data_replace:
@@ -58,6 +59,8 @@ class PostRecord(BaseRecord):
             input_get = self._get_data_template(path_to_input_post, 'GET_INPUT')
             input_proc = self._get_data_template(path_to_input_post, 'PROCESS_INPUT')
             input_class = self._get_data_template(path_to_input_post, 'CONCLASS_INPUT')
+            input_style = self._get_data_template(path_to_input_post, 'STYLE_INPUT')
+            self.data_css.add(input_style)
             data.append(f'          <div class="{self._replace_label(input_class, label)}">')
             for label_name in label_names:
                 if label == 'input_checkbox':
@@ -84,6 +87,8 @@ class PostRecord(BaseRecord):
             textarea_proc = self._get_data_template(path_to_textarea_post, 'PROCESS_TEXTAREA')
             textarea_class = self._get_data_template(path_to_textarea_post, 'CONCLASS_TEXTAREA')
             data.append(f'          <div class="{self._replace_label(textarea_class, label)}">')
+            textarea_style = self._get_data_template(path_to_textarea_post, 'STYLE_TEXTAREA')
+            self.data_css.add(textarea_style)
             for label_name in label_names:
                 data.append(self._replace_label(textarea_data, label, label_name))
                 self.data_php_proc.append(self._replace_label(textarea_proc, label, label_name))
@@ -107,10 +112,12 @@ class PostRecord(BaseRecord):
             img_link_class = self._get_data_template(path_to_img_post, 'CONCLASS_IMG_LINK')
             img_link_func = self._get_data_template(path_to_img_post, 'IMG_LINK_FUNCTIONS')
             img_link_inc = self._get_data_template(path_to_img_post, 'IMG_LINK_INC')
+            img_link = self._get_data_template(path_to_img_post, 'STYLE_IMG_LINK')
+            self.data_css.add(img_link)
             self.data_js_functions.add(img_link_func)
             data.append(f'          <div class="{self._replace_label(img_link_class, label)}">')
             for label_name in label_names:
-                l_n.append(label_name)
+                l_n.append(label_name.lower())
                 data.append(self._replace_label(img_link_data, label, label_name))
                 self.data_php_proc.append(self._replace_label(img_link_proc, label, label_name))
                 self.data_php_get.append(self._replace_label(img_link_get, label, label_name))
@@ -133,10 +140,12 @@ class PostRecord(BaseRecord):
             svg_class = self._get_data_template(path_to_img_post, 'CONCLASS_SVG')
             svg_func = self._get_data_template(path_to_img_post, 'SVG_FUNCTIONS')
             svg_inc = self._get_data_template(path_to_img_post, 'SVG_INC')
+            svg_style = self._get_data_template(path_to_img_post, 'STYLE_IMG_SVG')
+            self.data_css.add(svg_style)
             self.data_js_functions.add(svg_func)
             data.append(f'          <div class="{self._replace_label(svg_class, label)}">')
             for label_name in label_names:
-                l_n.append(label_name)
+                l_n.append(label_name.lower())
                 data.append(self._replace_label(svg_data, label, label_name))
                 self.data_php_proc.append(self._replace_label(svg_proc, label, label_name))
                 self.data_php_get.append(self._replace_label(svg_get, label, label_name))
@@ -159,10 +168,12 @@ class PostRecord(BaseRecord):
             video_class = self._get_data_template(path_to_video_post, 'CONCLASS_VIDEO')
             video_func = self._get_data_template(path_to_video_post, 'VIDEO_FUNCTIONS')
             video_inc = self._get_data_template(path_to_video_post, 'VIDEO_INC')
+            video_style = self._get_data_template(path_to_video_post, 'STYLE_VIDEO')
+            self.data_css.add(video_style)
             self.data_js_functions.add(video_func)
             data.append(f'          <div class="{self._replace_label(video_class, label)}">')
             for label_name in label_names:
-                l_n.append(label_name)
+                l_n.append(label_name.lower())
                 data.append(self._replace_label(video_data, label, label_name))
                 self.data_php_proc.append(self._replace_label(video_proc, label, label_name))
                 self.data_php_get.append(self._replace_label(video_get, label, label_name))
@@ -185,10 +196,12 @@ class PostRecord(BaseRecord):
             point_class = self._get_data_template(path_to_point_post, 'CONCLASS_POINTS')
             point_func = self._get_data_template(path_to_point_post, 'POINTS_FUNCTIONS')
             point_inc = self._get_data_template(path_to_point_post, 'POINTS_INC')
+            point_style = self._get_data_template(path_to_point_post, 'STYLE_POINT')
+            self.data_css.add(point_style)
             self.data_js_functions.add(point_func)
             data.append(f'          <div class="{self._replace_label(point_class, label)}">')
             for label_name in label_names:
-                l_n.append(label_name)
+                l_n.append(label_name.lower())
                 data.append(self._replace_label(point_data, label, label_name))
                 self.data_php_proc.append(self._replace_label(point_proc, label, label_name))
                 self.data_php_get.append(self._replace_label(point_get, label, label_name))
@@ -214,6 +227,8 @@ class PostRecord(BaseRecord):
             table_cls_data = self._get_data_template(path_to_table_post, 'CONCLASS_TABLE')
             table_func_data = self._get_data_template(path_to_table_post, 'TABLE_FUNCTIONS')
             table_inc_data = self._get_data_template(path_to_table_post, 'TABLE_INC')
+            table_style = self._get_data_template(path_to_table_post, 'STYLE_TABLE')
+            self.data_css.add(table_style)
             self.data_js_functions.add(table_func_data)
             data.append(f'          <div class="{self._replace_label(table_cls_data, label)}">')
             for table in tables:
@@ -245,8 +260,7 @@ class PostRecord(BaseRecord):
 
 
                 data_js_inc.append(f"{{'{table_name}':['{"','".join(table_labels)}']}}")
-                print(table_name)
-                print(table_labels)
+
             data.append('\n           </div>')
             self.data_js_include.append(table_inc_data.replace('DATA_TABLE_VALUES', ',\n'.join(data_js_inc)))
 
