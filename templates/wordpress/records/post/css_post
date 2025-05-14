@@ -1,0 +1,51 @@
+/***/ TAB STYLES
+/* Tab styles */
+.mtab_hero {
+    width: 100%;
+    min-height: 70vh;
+}
+
+.mtab_header {
+    width: 100%;
+    height: 7vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.3vw;
+}
+
+.mtab_header_item {
+    border: 0.1vw solid black ;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #00aee3, #ffffff);
+    color: #000000;
+}
+
+.mtab_header_item:hover {
+    background: linear-gradient(180deg, #0086ae, #ffffff);
+    cursor: pointer;
+}
+
+.mtab_header_item.tab_active{
+    background: linear-gradient(0deg, #00aee3, #000000);
+    color: #ffffff;
+}
+.mtab_header_item.tab_active:hover {
+    background: linear-gradient(0deg, #0086ae, rgba(18, 18, 18, 0.85));
+}
+
+.mtab_content_item{
+    display: none;
+}
+
+.mtab_content_item.content_active {
+    display: flex;
+}
+
+/***/ END

@@ -1,0 +1,17 @@
+/***/  DATA_INPUT
+        <label for="INPUT_TYPE_LLABEL">CLABEL</label>
+        <input type="INPUT_STYPE" value="<?php echo esc_attr($INPUT_TYPE_LLABEL); ?>" name = "INPUT_TYPE_LLABEL" id="INPUT_TYPE_LLABEL" class ="INPUT_TYPE-item">
+/***/  GET_INPUT
+        $INPUT_TYPE_LLABEL = get_post_meta($post->ID, 'INPUT_TYPE_LLABEL', true);
+/***/  PROCESS_INPUT
+        create_meta_field_config('INPUT_TYPE_LLABEL','CLABEL')
+/***/  CONCLASS_INPUT
+        form-container-INPUT_TYPE
+
+/***/  DATA_CHECKBOX_INPUT
+<label for="INPUT_TYPE_LLABEL">CLABEL</label>
+                    <input type="INPUT_STYPE" name="INPUT_TYPE_LLABEL" id="INPUT_TYPE_LLABEL" class="INPUT_TYPE-item"
+                        <?php checked( $INPUT_TYPE_LLABEL, 1 ); ?>>
+/***/  PROCESS_CHECKBOX_INPUT
+create_meta_field_config('INPUT_TYPE_LLABEL','CLABEL','sanitize_checkbox')
+/***/  END

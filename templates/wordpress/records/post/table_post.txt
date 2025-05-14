@@ -1,0 +1,256 @@
+/***/  DATA_TABLE
+
+    <div class="table-container">
+            <div class="table_content_input">
+                <input type="text" hidden="hidden" value="<?php echo esc_attr($table_data_LLABEL); ?>"
+                       name="table_input_data-LLABEL" id="table_input_data-LLABEL">
+                LABELTABLE
+                <input type="button" value="Add CLABEL" id="btn_table_input_add-LLABEL">
+            </div>
+            <div class="table_content_main">
+                <table class="form-table" id="table-LLABEL">
+                    <thead class="table-head">
+                    <tr>
+                        <th>#</th>
+                        HEADTABLE
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-body">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+/***/  DATA_INPUT_TABLE
+
+        <label for="table_input_LLABEL-LINLABEL">CINLABEL</label>
+                <input type="text" id="table_input_LLABEL-LINLABEL" class="table_input_input" placeholder="Input LINLABEL">
+
+/***/  DATA_TEXTAREA_TABLE
+    <label for="table_input_LLABEL-LINLABEL">CINLABEL</label>
+                <textarea id="table_input_LLABEL-LINLABEL" class="table_input_textarea" cols="30" rows="10"
+                          placeholder="Input LINLABEL"></textarea>
+/***/  GET_TABLE
+
+    $table_data_LLABEL = get_post_meta($post->ID, 'table_input_data-LLABEL', true);
+
+/***/  PROCESS_TABLE
+
+    create_meta_field_config('table_input_data-LLABEL', 'CLABEL', 'sanitize_text_field', 'normalize_to_array')
+
+/***/  CONCLASS_TABLE
+
+form-container-table
+
+/***/ TABLE_FUNCTIONS
+function precessTable(tableNames){
+    function initDragAndDropForTable(tableName) {
+        const table = document.getElementById(`table-${tableName}`);
+        const tbody = table.querySelector('tbody');
+
+        let draggedRow = null;
+
+        tbody.querySelectorAll('tr').forEach(row => {
+            row.setAttribute('draggable', true);
+
+            row.addEventListener('dragstart', (e) => {
+                draggedRow = row;
+                row.classList.add('dragging');
+            });
+
+            row.addEventListener('dragend', (e) => {
+                draggedRow = null;
+                row.classList.remove('dragging');
+            });
+
+            row.addEventListener('dragover', (e) => {
+                e.preventDefault(); // Дозволяє "drop"
+                const targetRow = e.currentTarget;
+
+                if (draggedRow && draggedRow !== targetRow) {
+                    const rows = Array.from(tbody.querySelectorAll('tr'));
+                    const draggedIndex = rows.indexOf(draggedRow);
+                    const targetIndex = rows.indexOf(targetRow);
+
+                    if (draggedIndex < targetIndex) {
+                        targetRow.after(draggedRow);
+                    } else {
+                        targetRow.before(draggedRow);
+                    }
+
+                    // Оновити порядкові номери в першій колонці
+                    updateTableNumbering(tbody);
+                    saveTableValueForRestApi(tableName);
+                }
+            });
+        })
+    }
+
+
+
+    function updateTableNumbering(tableBody){
+        let num = 1
+        const tableBodyTr = tableBody.querySelectorAll('tr')
+        tableBodyTr.forEach( element =>{
+            element.querySelector('td').textContent = num
+            num++
+        })
+
+    }
+    function actionTableBtnEdit(element){
+        let tableName = element.parentElement.parentElement.parentElement.parentElement.id
+        const tableBody = element.parentElement.parentElement.parentElement
+        const el = element.parentElement.parentElement
+        tableName = tableName.replace('table-','')
+        let tableValue = []
+        const tableData = document.querySelector(`#table_input_data-${tableName}`)
+        let dataValueElement = element.parentElement.parentElement
+        dataValueElement = Array.from(dataValueElement.children).slice(1,-1)
+        dataValueElement.forEach( el =>{
+            tableValue.push(el.textContent.trim())
+        })
+        let inputElements = [];
+        let inputValueElements = Array.from(tableData.parentElement.children);
+
+        inputValueElements.forEach(el => {
+            if (el.className.startsWith('table_input_')) {
+                inputElements.push(el);
+            }
+        });
+        inputElements.forEach((element,index) =>{
+            element.value = tableValue[index]
+        })
+
+        el.remove()
+        updateTableNumbering(tableBody)
+    }
+    function actionTableBtnRemove(element){
+        const el = element.parentElement.parentElement
+        const tableBody = element.parentElement.parentElement.parentElement
+        let tableName = element.parentElement.parentElement.parentElement.parentElement.id
+        tableName = tableName.replace('table-','')
+        el.remove()
+        updateTableNumbering(tableBody)
+        saveTableValueForRestApi(tableName)
+    }
+
+    function createTableBtnInput(content, cls, funcOnPress){
+        const btn = document.createElement('input')
+        btn.type = 'button'
+        btn.value = content
+        btn.classList.add(cls)
+        btn.addEventListener('click', function (){
+            funcOnPress(this)
+        })
+        return btn
+    }
+
+    function saveTableValueForRestApi(tableName){
+        let data = []
+        const tableData = document.querySelector(`#table_input_data-${tableName}`)
+        const tableContainer = tableData.parentElement.parentElement
+        const tableHead = tableContainer.querySelector('.table-head')
+        let dataName = []
+        const tableHeadTr = tableHead.querySelector('tr')
+        const tableHeadData = Array.from(tableHeadTr.children).slice(1, -1);
+        tableHeadData.forEach(el=>{
+            dataName.push(el.textContent.trim())
+        })
+
+        const tableBody = tableContainer.querySelector('.table-body')
+        const tableBodyTr = tableBody.querySelectorAll('tr')
+        tableBodyTr.forEach(elementTr => {
+            const tableBodyData = Array.from(elementTr.children).slice(1, -1); // діти <tr>, з 1 по передостанній
+
+            let dataLine = {}; // Ініціалізуємо об'єкт
+
+            tableBodyData.forEach((td, index) => {
+                const name = dataName[index]; // відповідний елемент із другого масиву
+                dataLine[name] = td.textContent.trim(); // додаємо до об'єкта
+            });
+
+            data.push(dataLine); // додаємо об'єкт до масиву
+        });
+
+
+
+        tableData.value = JSON.stringify(data)
+        tableData.setAttribute('value',JSON.stringify(data))
+
+    }
+
+    function createLine(tableName, tableLine){
+        const tableData = document.querySelector(`#table_input_data-${tableName}`)
+        const tableContainer = tableData.parentElement.parentElement
+        const tableBody = tableContainer.querySelector('.table-body')
+
+        const trMain = document.createElement('tr')
+        const tdNum = document.createElement('td')
+        tdNum.textContent = '#'
+        trMain.appendChild(tdNum)
+        const tdAction = document.createElement('td')
+
+        for (const key in tableLine) {
+            const tdLabel = document.createElement('td')
+            tdLabel.textContent = tableLine[key]
+            trMain.appendChild(tdLabel)
+        }
+
+        const btnEdit = createTableBtnInput('->','btn_edit',actionTableBtnEdit)
+        const btnRemove = createTableBtnInput('x','btn_remove',actionTableBtnRemove)
+        tdAction.appendChild(btnEdit)
+        tdAction.appendChild(btnRemove)
+
+
+        trMain.appendChild(tdAction)
+
+        tableBody.appendChild(trMain)
+        updateTableNumbering(tableBody)
+        saveTableValueForRestApi(tableName)
+    }
+    function  loadTable(tableName){
+        const tableData = document.querySelector(`#table_input_data-${tableName}`)
+        let dataTable =[]
+        try {
+            dataTable = JSON.parse(tableData.value)
+        }catch (e){
+            dataTable = []
+            console.log("Помилка парсингу масиву", e)
+        }
+        dataTable.forEach(tableLine =>{
+            createLine(tableName, tableLine)
+        })
+
+    }
+    function createTableLine(tableName, labelNames) {
+        const tableBtnAdd = document.querySelector(`#btn_table_input_add-${tableName}`)
+        tableBtnAdd.addEventListener('click', function (){
+            let tableLine = {}
+            labelNames.forEach(labelName =>{
+                const  label = document.querySelector(`#table_input_${tableName}-${labelName}`)
+                tableLine[labelName] = label.value
+                label.value=''
+            })
+            createLine(tableName, tableLine)
+        })
+    }
+
+    tableNames.forEach(obj => {
+        for (const tableName   in obj) {
+            const tableData = document.querySelector(`#table_input_data-${tableName}`)
+            const tableContainer = tableData.parentElement.parentElement
+            const tableHead = tableContainer.querySelector('.table-head')
+            loadTable(tableName)
+            createTableLine(tableName, obj[tableName])
+            initDragAndDropForTable(tableName)
+        }
+    });
+
+}
+/***/ TABLE_INC
+let tableNames = [
+         DATA_TABLE_VALUES
+     ]
+    precessTable(tableNames)
+/***/  END

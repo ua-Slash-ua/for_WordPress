@@ -1,0 +1,4 @@
+{
+    "wordpress_version": "https://api.wordpress.org/core/version-check/1.7/",
+    "wordpress_download": "https://downloads.wordpress.org/release/wordpress-6.8.1.zip"
+}

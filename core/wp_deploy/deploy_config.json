@@ -1,0 +1,17 @@
+{
+  "env_name": "bilobrov",
+  "environments": [
+    {
+      "name": "OpenServer",
+      "type": "OpenServer",
+      "path": "D:\\Programms\\OSPanel\\home",
+      "isProcess":true
+    },
+    {
+      "name": "Custom_1",
+      "type": "Custom",
+      "path": "D:\\Slash\\Programming\\Language\\PhP",
+      "isProcess":false
+    }
+  ]
+}

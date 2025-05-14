@@ -1,0 +1,46 @@
+
+{
+  "theme_path": "D:\\Programms\\OSPanel\\home\\Bilobrov\\wp-content\\themes\\Bilob",
+  "folders":{
+      "path_to_inc": "inc",
+      "path_to_admin_panel": "admin_panel",
+      "path_to_css": "ap_styles",
+      "path_to_js": "ap_scripts",
+      "path_to_helpers_func": "helpers_func"
+    },
+  "records": [
+    {
+      "record_name": "example",
+      "record_type": "post",
+      "record_icon": "dashicons-admin-post",
+      "record_menu": "",
+      "record_items": [
+        {
+          "mb_name": "first",
+          "mb_position": "normal",
+          "mb_priority": "high",
+          "mb_items": [
+            {
+              "tab_name": "main",
+              "tab_items": {
+                "input_text": [],
+                "input_color": [],
+                "input_date": [],
+                "input_time": [],
+                "input_checkbox": [],
+                "textarea": ["desc","opis"],
+                "img_link": [],
+                "img_svg": [],
+                "video": [],
+                "points": [],
+                "table": []
+              }
+            }
+
+          ]
+        }
+      ]
+    }
+
+  ]
+}

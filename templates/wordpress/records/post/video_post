@@ -1,0 +1,124 @@
+/***/ DATA_VIDEO
+<div class="video_hero" id="video_hero_LLABEL">
+            <input type="button" value="Upload CLABEL" id="video_upload_LLABEL">
+            <input type="text" hidden="hidden" value="<?php echo esc_attr($video_LLABEL); ?>"
+                   id="video_data_LLABEL" name="video_data_LLABEL">
+            <div class="video_preview_container" id="video_preview_container_LLABEL">
+
+            </div>
+        </div>
+/***/ GET_VIDEO
+$video_LLABEL = get_post_meta($post->ID, 'video_data_LLABEL', true);
+/***/ PROCESS_VIDEO
+    create_meta_field_config('video_data_LLABEL', 'CLABEL', 'sanitize_text_field', 'normalize_array_or_string')
+/***/ CONCLASS_VIDEO
+form-container-video
+/***/ VIDEO_FUNCTIONS
+function processedVideoLink(videoNames) {
+    function videoLinkUploadFile(videoName, data) {
+        const previewContainer = document.querySelector(`#video_preview_container_${videoName}`);
+        if (!previewContainer) return;
+
+        // Очистити попередній вміст
+        previewContainer.innerHTML = '';
+
+        const attachments = Array.isArray(data) ? data : [data];
+
+        attachments.forEach(attachment => {
+            const videoWrapper = document.createElement('div');
+            videoWrapper.className = 'video_preview_item';
+
+            const btnRemove = document.createElement('input');
+            btnRemove.type = 'button';
+            btnRemove.value = 'x';
+            btnRemove.classList.add('video_preview_btn');
+            btnRemove.addEventListener('click', function () {
+                previewContainer.removeChild(videoWrapper);
+                videoLinkUpdateForRestApi(videoName);
+            });
+
+            const video = document.createElement('video');
+            video.src = attachment;
+            video.controls = true;
+            video.width = 300;
+
+            videoWrapper.appendChild(video);
+            videoWrapper.appendChild(btnRemove);
+            previewContainer.appendChild(videoWrapper);
+        });
+
+        videoLinkUpdateForRestApi(videoName);
+    }
+
+    function videoLinkInitMediaUploader(videoName) {
+        const uploadBtn = document.getElementById(`video_upload_${videoName}`);
+        if (!uploadBtn) return;
+
+        let mediaUploader;
+        const multiple = videoName.endsWith('_');
+
+        uploadBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            if (mediaUploader) {
+                mediaUploader.open();
+                return;
+            }
+
+            mediaUploader = wp.media({
+                title: 'Select or Upload Videos',
+                button: {
+                    text: 'Use this video'
+                },
+                library: {
+                    type: 'video'
+                },
+                multiple: multiple
+            });
+
+            mediaUploader.on('select', function () {
+                const selection = mediaUploader.state().get('selection');
+                const attachments = selection.toArray();
+                let attachments_data = []
+                attachments.forEach(el => {
+                    attachments_data.push(el.attributes.url);
+                });
+                videoLinkUploadFile(videoName, attachments_data);
+            });
+
+            mediaUploader.open();
+        });
+    }
+
+    function videoLinkUpdateForRestApi(videoName) {
+        const videoLinkData = document.querySelector(`#video_data_${videoName}`);
+        const previewItems = document.querySelectorAll(`#video_preview_container_${videoName} .video_preview_item`);
+        let dataLink = [];
+        previewItems.forEach(el => {
+            const link = el.querySelector('video').src;
+            dataLink.push(link);
+        });
+        videoLinkData.setAttribute('value', JSON.stringify(dataLink));
+    }
+
+    function videoLinkLoad(videoName) {
+        const videoLinkData = document.querySelector(`#video_data_${videoName}`);
+        let videoLinkDataArray = [];
+        try {
+            videoLinkDataArray = JSON.parse(videoLinkData.value);
+        } catch (e) {
+            console.log('Помилка при парсингу JSON: перший запуск поста');
+        }
+        videoLinkUploadFile(videoName, videoLinkDataArray);
+    }
+
+    videoNames.forEach(videoName => {
+        videoLinkInitMediaUploader(videoName);
+        videoLinkLoad(videoName);
+    });
+}
+/***/ VIDEO_INC
+let videoLinks = ['DATA_VIDEO_VALUES'];
+    processedVideoLink(videoLinks);
+/***/ END
+

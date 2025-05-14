@@ -1,0 +1,18 @@
+/***/  DATA_TEXTAREA
+
+        <label for="TEXTAREA_TYPE_LLABEL">CLABEL</label>
+        <textarea name="TEXTAREA_TYPE_LLABEL" id="TEXTAREA_TYPE_LLABEL" cols="30" rows="10"><?php echo esc_attr($TEXTAREA_TYPE_LLABEL);?></textarea>
+
+/***/  GET_TEXTAREA
+
+        $TEXTAREA_TYPE_LLABEL = get_post_meta($post->ID, 'TEXTAREA_TYPE_LLABEL', true);
+
+/***/  PROCESS_TEXTAREA
+
+        create_meta_field_config('TEXTAREA_TYPE_LLABEL','CLABEL')
+
+/***/  CONCLASS_TEXTAREA
+
+        form-container-TEXTAREA_TYPE
+
+/***/  END

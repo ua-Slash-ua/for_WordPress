@@ -1,0 +1,27 @@
+/***/ TAB MAIN
+<div class="mtab_hero">
+        <ul class="mtab_header">
+            TAB_HEAD
+        </ul>
+        <div class="mtab_content">
+           TAB_BODY
+        </div>
+</div>
+
+/***/ TAB ACTIVE HEAD
+       <li class="mtab_header_item tab_active" id="L_TNAME">C_TNAME</li>
+
+/***/ TAB HEAD
+       <li class="mtab_header_item" id="L_TNAME">C_TNAME</li>
+
+/***/ TAB ACTIVE BODY
+       <div class="mtab_content_item content_active" id="content_L_TNAME">
+            T_CONTENT
+       </div>
+
+/***/ TAB BODY
+       <div class="mtab_content_item" id="content_L_TNAME">
+            T_CONTENT
+       </div>
+
+/***/

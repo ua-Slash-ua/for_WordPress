@@ -1,0 +1,188 @@
+/***/  DATA_IMG_LINK
+            <div class="img_link_hero" id="img_link_hero_LLABEL">
+                <input type="button" value="Upload CLABEL" id="img_link_upload_LLABEL">
+                <input type="text" hidden="hidden" value="<?php echo esc_attr($img_link_LLABEL); ?>"
+                       id="img_link_data_LLABEL" name="img_link_data_LLABEL">
+                <div class="img_link_preview_container" id="img_link_preview_container_LLABEL">
+
+                </div>
+            </div>
+/***/  GET_IMG_LINK
+    $img_link_LLABEL = get_post_meta($post->ID, 'img_link_data_LLABEL', true);
+/***/  PROCESS_IMG_LINK
+    create_meta_field_config('img_link_data_LLABEL', 'CLABEL', 'sanitize_text_field', 'normalize_array_or_string')
+/***/  CONCLASS_IMG_LINK
+
+    form-container-img_link
+
+/***/ IMG_LINK_FUNCTIONS
+function processedImgLink(imgNames) {
+        function imgLinkUploadPhoto(imgName, data) {
+            const previewContainer = document.querySelector(`#img_link_preview_container_${imgName}`);
+            if (!previewContainer) return;
+            // Очистити попередній вміст
+            previewContainer.innerHTML = '';
+
+            const attachments = Array.isArray(data) ? data : [data];
+
+            attachments.forEach(attachment => {
+                const imageWrapper = document.createElement('div');
+                imageWrapper.className = 'img_link_preview_item';
+
+                const btnRemove = document.createElement('input');
+                btnRemove.type = 'button'
+                btnRemove.value = 'x'
+                btnRemove.classList.add('img_link_preview_btn')
+                btnRemove.addEventListener('click', function (){
+                    previewContainer.removeChild(imageWrapper);
+                    imgLinkUpdateForRestApi(imgName)
+                })
+
+                const img = document.createElement('img');
+                img.src = attachment
+
+
+                imageWrapper.appendChild(img);
+                imageWrapper.appendChild(btnRemove);
+                previewContainer.appendChild(imageWrapper);
+            });
+            imgLinkUpdateForRestApi(imgName)
+        }
+
+        function imgLinkInitMediaUploader(imgName) {
+            const uploadBtn = document.getElementById(`img_link_upload_${imgName}`);
+            if (!uploadBtn) return;
+
+            let mediaUploader;
+            const multiple = imgName.endsWith('_');
+
+
+            uploadBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                if (mediaUploader) {
+                    mediaUploader.open();
+                    return;
+                }
+
+                mediaUploader = wp.media({
+                    title: 'Select or Upload Images',
+                    button: {
+                        text: 'Use this image'
+                    },
+                    multiple: multiple
+                });
+
+                mediaUploader.on('select', function () {
+                    const selection = mediaUploader.state().get('selection');
+                    const attachments = selection.toArray();
+                    let attachments_data = []
+                    attachments.forEach( el =>{
+                            attachments_data.push(el.attributes.url)
+                        }
+
+                    )
+                    imgLinkUploadPhoto(imgName, attachments_data);
+
+                });
+
+                mediaUploader.open();
+            });
+        }
+
+        function imgLinkUpdateForRestApi(imgName){
+            const imgLinkData = document.querySelector(`#img_link_data_${imgName}`);
+            const previewContainer = document.querySelectorAll(`#img_link_preview_container_${imgName} .img_link_preview_item`);
+            let dataLink = []
+            previewContainer.forEach( el =>{
+                let link = el.querySelector('img').src
+                dataLink.push(link)
+            })
+            imgLinkData.setAttribute('value',JSON.stringify(dataLink))
+        }
+
+        function imgLinkLoad(imgName){
+            const imgLinkData = document.querySelector(`#img_link_data_${imgName}`);
+            let imgLinkDataArray = [];
+            try {
+                imgLinkDataArray = JSON.parse(imgLinkData.value);
+            } catch (e) {
+                console.log('Помилка при парсингу JSON: перший запуск поста');
+            }
+            imgLinkUploadPhoto(imgName, imgLinkDataArray)
+        }
+
+    imgNames.forEach(imgName =>{
+
+        imgLinkInitMediaUploader(imgName);
+        imgLinkLoad(imgName)
+    })
+
+
+}
+
+/***/ IMG_LINK_INC
+    let imgLinks = ['DATA_IMG_LINK_VALUES']
+    processedImgLink(imgLinks);
+/***/  DATA_SVG
+            <div class="img_svg_container">
+            <label for="img_svg-LLABEL">CLABEL</label>
+            <textarea name="img_svg-LLABEL" id="img_svg-LLABEL" cols="30" rows="10"><?php  echo $img_svg_LLABEL; ?></textarea>
+            <div class="img_svg_container_preview">
+
+            </div>
+        </div>
+/***/  GET_SVG
+    $img_svg_LLABEL = get_post_meta($post->ID, 'img_svg-LLABEL', true);
+/***/  PROCESS_SVG
+    create_meta_field_config('img_svg-LLABEL', 'CLABEL','sanitize_svg' )
+/***/  CONCLASS_SVG
+
+    form-container-img_svg
+
+
+/***/ SVG_FUNCTIONS
+function processSvg(svgNames) {
+
+    function svgPreview(elContainer, dataText) {
+        // Перевірка, чи є контейнер і чи містить dataText коректний SVG
+        if (elContainer && dataText) {
+            elContainer.innerHTML = dataText; // Вставка SVG коду в контейнер
+        } else {
+            console.error("Контейнер або SVG код не надано.");
+        }
+    }
+
+    svgNames.forEach(svgName => {
+        const svgDataElement = document.querySelector(`#img_svg-${svgName}`);
+
+        // Перевірка наявності svgDataElement
+        if (!svgDataElement) {
+            console.error(`Елемент з id #img_svg-${svgName} не знайдений.`);
+            return;
+        }
+
+        const svgDataElementPreview = svgDataElement.parentElement.querySelector('.img_svg_container_preview');
+
+        // Перевірка наявності svgDataElementPreview
+        if (!svgDataElementPreview) {
+            console.error(`Елемент з класом .img_svg_container_preview не знайдений.`);
+            return;
+        }
+
+        const svgData = svgDataElement.value;  // Використовуємо innerHTML, щоб отримати правильний SVG код
+
+        // Відображення SVG у контейнері
+        svgPreview(svgDataElementPreview, svgData);
+
+        // Додаємо обробник події на input
+        svgDataElement.addEventListener('input', function () {
+            const svgData1 = this.value; // Знову беремо правильний SVG код
+            svgPreview(svgDataElementPreview, svgData1);
+        });
+    });
+}
+/***/ SVG_INC
+let imgSvg = ['DATA_SVG_VALUES']
+    processSvg(imgSvg)
+/***/ END

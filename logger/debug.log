@@ -1,0 +1,226 @@
+[02.05.2025 17:40:00][Error] File: File "<frozen os>", line 225, in makedirs,
+ Error: [WinError 183] Cannot create a file when that file already exists: 'D:\\Programms\\OSPanel\\home\\Bilobrov\\wp-content\\themes\\Bilob'
+[02.05.2025 17:40:00][Error] File: File "<frozen ntpath>", line 108, in join,
+ Error: expected str, bytes or os.PathLike object, not NoneType
+[02.05.2025 17:40:00][Error] File: File "<frozen ntpath>", line 108, in join,
+ Error: expected str, bytes or os.PathLike object, not NoneType
+[02.05.2025 17:40:00][Error] File: File "<frozen ntpath>", line 108, in join,
+ Error: expected str, bytes or os.PathLike object, not NoneType
+[02.05.2025 17:40:32][Error] File: File "<frozen os>", line 225, in makedirs,
+ Error: [WinError 183] Cannot create a file when that file already exists: 'D:\\Programms\\OSPanel\\home\\Bilobrov\\wp-content\\themes\\Bilob'
+[02.05.2025 17:40:32][Error] File: File "<frozen ntpath>", line 108, in join,
+ Error: expected str, bytes or os.PathLike object, not NoneType
+[02.05.2025 17:40:32][Error] File: File "<frozen ntpath>", line 108, in join,
+ Error: expected str, bytes or os.PathLike object, not NoneType
+[02.05.2025 17:40:32][Error] File: File "<frozen ntpath>", line 108, in join,
+ Error: expected str, bytes or os.PathLike object, not NoneType
+[02.05.2025 17:41:37][Error] File: File "<frozen os>", line 225, in makedirs,
+ Error: [WinError 183] Cannot create a file when that file already exists: 'D:\\Programms\\OSPanel\\home\\Bilobrov\\wp-content\\themes\\Bilob'
+[02.05.2025 17:41:37][Error] File: File "<frozen ntpath>", line 108, in join,
+ Error: expected str, bytes or os.PathLike object, not NoneType
+[02.05.2025 17:41:37][Error] File: File "<frozen ntpath>", line 108, in join,
+ Error: expected str, bytes or os.PathLike object, not NoneType
+[02.05.2025 17:41:37][Error] File: File "<frozen ntpath>", line 108, in join,
+ Error: expected str, bytes or os.PathLike object, not NoneType
+[02.05.2025 17:42:09][Error] File: File "<frozen os>", line 225, in makedirs,
+ Error: [WinError 183] Cannot create a file when that file already exists: 'D:\\Programms\\OSPanel\\home\\Bilobrov\\wp-content\\themes\\Bilob'
+[02.05.2025 17:42:09][Error] File: File "<frozen ntpath>", line 108, in join,
+ Error: expected str, bytes or os.PathLike object, not NoneType
+[02.05.2025 17:42:09][Error] File: File "<frozen ntpath>", line 108, in join,
+ Error: expected str, bytes or os.PathLike object, not NoneType
+[02.05.2025 17:42:09][Error] File: File "<frozen ntpath>", line 108, in join,
+ Error: expected str, bytes or os.PathLike object, not NoneType
+[02.05.2025 17:42:18][Error] File: File "<frozen os>", line 225, in makedirs,
+ Error: [WinError 183] Cannot create a file when that file already exists: 'D:\\Programms\\OSPanel\\home\\Bilobrov\\wp-content\\themes\\Bilob'
+[02.05.2025 17:42:18][Error] File: File "<frozen ntpath>", line 108, in join,
+ Error: expected str, bytes or os.PathLike object, not NoneType
+[02.05.2025 17:42:18][Error] File: File "<frozen ntpath>", line 108, in join,
+ Error: expected str, bytes or os.PathLike object, not NoneType
+[02.05.2025 17:42:34][Error] File: File "<frozen os>", line 225, in makedirs,
+ Error: [WinError 183] Cannot create a file when that file already exists: 'D:\\Programms\\OSPanel\\home\\Bilobrov\\wp-content\\themes\\Bilob'
+[02.05.2025 17:42:34][Error] File: File "<frozen ntpath>", line 108, in join,
+ Error: expected str, bytes or os.PathLike object, not NoneType
+[02.05.2025 17:42:34][Error] File: File "<frozen ntpath>", line 108, in join,
+ Error: expected str, bytes or os.PathLike object, not NoneType
+[02.05.2025 17:42:45][Error] File: File "<frozen os>", line 225, in makedirs,
+ Error: [WinError 183] Cannot create a file when that file already exists: 'D:\\Programms\\OSPanel\\home\\Bilobrov\\wp-content\\themes\\Bilob'
+[02.05.2025 17:42:45][Error] File: File "<frozen ntpath>", line 108, in join,
+ Error: expected str, bytes or os.PathLike object, not NoneType
+[02.05.2025 17:42:45][Error] File: File "<frozen ntpath>", line 108, in join,
+ Error: expected str, bytes or os.PathLike object, not NoneType
+[02.05.2025 17:44:02][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\tools\file_manager\file_manager.py", line 26, in read_other
+    with open(path_to_file, 'r', encoding='utf-8') as file:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^,
+ Error: [Errno 2] No such file or directory: 'D:\\Programms\\OSPanel\\home\\Bilobrov\\wp-content\\themes\\Bilob\\function.php\\func_inc_types.txt'
+[02.05.2025 17:44:02][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_themes\FunctionEditor.py", line 19, in get_all_include
+    data_list = [inc.strip() for inc in data_str.split('\n')]
+                                        ^^^^^^^^^^^^^^,
+ Error: 'NoneType' object has no attribute 'split'
+[02.05.2025 17:46:06][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\tools\file_manager\file_manager.py", line 47, in write_other
+    file.write(data),
+ Error: write() argument must be str, not list
+[04.05.2025 22:21:29][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\BaseRecord.py", line 42, in get_path
+    full_path_to_css = self.ts_cls.create_admin_panel_styles(name_css, full_admin_panel)
+                                                                       ^^^^^^^^^^^^^^^^,
+ Error: name 'full_admin_panel' is not defined
+[06.05.2025 12:07:29][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\tools\file_manager\file_manager.py", line 47, in write_other
+    file.write(data),
+ Error: write() argument must be str, not list
+[07.05.2025 12:40:18][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\tools\file_manager\file_manager.py", line 47, in write_other
+    file.write(data),
+ Error: write() argument must be str, not list
+[07.05.2025 17:22:04][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 39, in _get_tab_render
+    dth_line = tab_data_ac_head.replace('L_TNAME', name.lower()).replace('C_TNAME', name.capitalize())
+                                                   ^^^^^^^^^^,
+ Error: 'dict' object has no attribute 'lower'
+[07.05.2025 18:11:49][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 63, in _get_tab_render
+    dtc_line.replate('T_CONTENT',self._get_labels_render(tab_items['tab_items']))
+    ^^^^^^^^^^^^^^^^,
+ Error: 'str' object has no attribute 'replate'
+[07.05.2025 18:11:49][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 128, in _post_mb_render_replacer
+    data = data.replace(k, data_replace[k])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^,
+ Error: replace() argument 2 must be str, not None
+[07.05.2025 18:12:56][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 63, in _get_tab_render
+    dtc_line.replate('T_CONTENT',self._get_labels_render(tab_items['tab_items']))
+    ^^^^^^^^^^^^^^^^,
+ Error: 'str' object has no attribute 'replate'
+[07.05.2025 18:13:24][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 63, in _get_tab_render
+    dtc_line.replate('T_CONTENT',self._get_labels_render(tab_items['tab_items']))
+    ^^^^^^^^^^^^^^^^,
+ Error: 'str' object has no attribute 'replate'
+[07.05.2025 18:13:56][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 63, in _get_tab_render
+    dtc_line.replace('T_CONTENT',self._get_labels_render(tab_items['tab_items']))
+                                                         ~~~~~~~~~^^^^^^^^^^^^^,
+ Error: list indices must be integers or slices, not str
+[07.05.2025 20:17:51][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 69, in _get_labels_render
+    return '\n'.join(data)
+           ^^^^^^^^^^^^^^^,
+ Error: sequence item 0: expected str instance, list found
+[07.05.2025 20:17:51][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 106, in _get_tab_render
+    dtc_line.replace('T_CONTENT', self._get_labels_render(tab['tab_items'])),
+ Error: replace() argument 2 must be str, not None
+[07.05.2025 20:18:24][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 70, in _get_labels_render
+    return '\n'.join(data)
+           ^^^^^^^^^^^^^^^,
+ Error: sequence item 0: expected str instance, list found
+[07.05.2025 20:18:24][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 107, in _get_tab_render
+    dtc_line.replace('T_CONTENT', self._get_labels_render(tab['tab_items'])),
+ Error: replace() argument 2 must be str, not None
+[07.05.2025 20:18:51][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 70, in _get_labels_render
+    return '\n'.join(data)
+           ^^^^^^^^^^^^^^^,
+ Error: sequence item 0: expected str instance, list found
+[07.05.2025 20:18:51][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 107, in _get_tab_render
+    dtc_line.replace('T_CONTENT', self._get_labels_render(tab['tab_items'])),
+ Error: replace() argument 2 must be str, not None
+[07.05.2025 20:20:36][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 70, in _get_labels_render
+    return '\n'.join(data)
+           ^^^^^^^^^^^^^^^,
+ Error: sequence item 0: expected str instance, list found
+[07.05.2025 20:20:36][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 107, in _get_tab_render
+    dtc_line.replace('T_CONTENT', self._get_labels_render(tab['tab_items'])),
+ Error: replace() argument 2 must be str, not None
+[07.05.2025 20:21:42][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 71, in _get_labels_render
+    data = '\n'.join(data)
+           ^^^^^^^^^^^^^^^,
+ Error: sequence item 0: expected str instance, list found
+[07.05.2025 20:21:42][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 109, in _get_tab_render
+    dtc_line.replace('T_CONTENT', self._get_labels_render(tab['tab_items'])),
+ Error: replace() argument 2 must be str, not None
+[07.05.2025 20:22:04][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 71, in _get_labels_render
+    data = '\n'.join(data)
+           ^^^^^^^^^^^^^^^,
+ Error: sequence item 0: expected str instance, list found
+[07.05.2025 20:22:04][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 109, in _get_tab_render
+    dtc_line.replace('T_CONTENT', self._get_labels_render(tab['tab_items'])),
+ Error: replace() argument 2 must be str, not None
+[07.05.2025 20:22:14][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 71, in _get_labels_render
+    data = '\n'.join(data)
+           ^^^^^^^^^^^^^^^,
+ Error: sequence item 0: expected str instance, list found
+[07.05.2025 20:22:14][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 110, in _get_tab_render
+    dtc_line.replace('T_CONTENT', self._get_labels_render(tab['tab_items'])),
+ Error: replace() argument 2 must be str, not None
+[07.05.2025 20:22:22][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 71, in _get_labels_render
+    data = '\n'.join(data)
+           ^^^^^^^^^^^^^^^,
+ Error: sequence item 0: expected str instance, list found
+[07.05.2025 20:22:22][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 110, in _get_tab_render
+    dtc_line.replace('T_CONTENT', self._get_labels_render(tab['tab_items'])),
+ Error: replace() argument 2 must be str, not None
+[07.05.2025 20:22:57][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 108, in _get_tab_render
+    dtc_line.replace('T_CONTENT', self._get_labels_render(tab['tab_items'])),
+ Error: replace() argument 2 must be str, not list
+[07.05.2025 21:13:09][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 38, in _replace_input
+    'INPUT_STYPE': label.replace('input_'),
+                   ^^^^^^^^^^^^^^^^^^^^^^^,
+ Error: replace expected at least 2 arguments, got 1
+[07.05.2025 21:13:09][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 38, in _replace_input
+    'INPUT_STYPE': label.replace('input_'),
+                   ^^^^^^^^^^^^^^^^^^^^^^^,
+ Error: replace expected at least 2 arguments, got 1
+[07.05.2025 21:13:09][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 38, in _replace_input
+    'INPUT_STYPE': label.replace('input_'),
+                   ^^^^^^^^^^^^^^^^^^^^^^^,
+ Error: replace expected at least 2 arguments, got 1
+[07.05.2025 21:13:09][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 38, in _replace_input
+    'INPUT_STYPE': label.replace('input_'),
+                   ^^^^^^^^^^^^^^^^^^^^^^^,
+ Error: replace expected at least 2 arguments, got 1
+[07.05.2025 21:13:09][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 38, in _replace_input
+    'INPUT_STYPE': label.replace('input_'),
+                   ^^^^^^^^^^^^^^^^^^^^^^^,
+ Error: replace expected at least 2 arguments, got 1
+[07.05.2025 21:13:09][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 38, in _replace_input
+    'INPUT_STYPE': label.replace('input_'),
+                   ^^^^^^^^^^^^^^^^^^^^^^^,
+ Error: replace expected at least 2 arguments, got 1
+[07.05.2025 21:13:09][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 38, in _replace_input
+    'INPUT_STYPE': label.replace('input_'),
+                   ^^^^^^^^^^^^^^^^^^^^^^^,
+ Error: replace expected at least 2 arguments, got 1
+[14.05.2025 09:00:46][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 222, in _get_labels_render
+    data = '\n'.join(data)
+           ^^^^^^^^^^^^^^^,
+ Error: sequence item 0: expected str instance, NoneType found
+[14.05.2025 09:12:07][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 233, in _get_labels_render
+    data = '\n'.join(data)
+           ^^^^^^^^^^^^^^^,
+ Error: sequence item 0: expected str instance, NoneType found
+[14.05.2025 09:12:45][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 233, in _get_labels_render
+    data = '\n'.join(data)
+           ^^^^^^^^^^^^^^^,
+ Error: sequence item 0: expected str instance, NoneType found
+[14.05.2025 10:26:07][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 36, in _replace_label
+    'LLABEL': label_name.lower(),
+              ^^^^^^^^^^^^^^^^,
+ Error: 'dict' object has no attribute 'lower'
+[14.05.2025 10:26:07][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 36, in _replace_label
+    'LLABEL': label_name.lower(),
+              ^^^^^^^^^^^^^^^^,
+ Error: 'dict' object has no attribute 'lower'
+[14.05.2025 10:26:07][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 39, in _replace_label
+    'INPUT_STYPE': label.replace('input_', ''),
+                   ^^^^^^^^^^^^^,
+ Error: 'dict' object has no attribute 'replace'
+[14.05.2025 10:26:07][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 39, in _replace_label
+    'INPUT_STYPE': label.replace('input_', ''),
+                   ^^^^^^^^^^^^^,
+ Error: 'dict' object has no attribute 'replace'
+[14.05.2025 10:26:07][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 39, in _replace_label
+    'INPUT_STYPE': label.replace('input_', ''),
+                   ^^^^^^^^^^^^^,
+ Error: 'dict' object has no attribute 'replace'
+[14.05.2025 10:27:03][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 39, in _replace_label
+    'INPUT_STYPE': label.replace('input_', ''),
+                   ^^^^^^^^^^^^^,
+ Error: 'dict' object has no attribute 'replace'
+[14.05.2025 10:27:03][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 39, in _replace_label
+    'INPUT_STYPE': label.replace('input_', ''),
+                   ^^^^^^^^^^^^^,
+ Error: 'dict' object has no attribute 'replace'
+[14.05.2025 10:27:03][Error] File: File "D:\Slash\Programming\Project\ForWordPress\for_WP_3_5\core\custom_record\PostRecord.py", line 39, in _replace_label
+    'INPUT_STYPE': label.replace('input_', ''),
+                   ^^^^^^^^^^^^^,
+ Error: 'dict' object has no attribute 'replace'
