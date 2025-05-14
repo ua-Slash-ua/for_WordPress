@@ -9,7 +9,7 @@ from core.tools.file_manager.file_manager import FileManager
 from core.tools.handlers.handler_path import HandlerPath
 from logger.logger import CustomLogger
 
-
+# test
 class BaseRecord:
     record_type = 'base'
 
